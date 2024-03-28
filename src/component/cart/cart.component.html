@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<div>
+  <h2>Cart Component</h2>
+
+  <button class="btn btn-primary"(click)="addProductToCart(customerId, productId)">Add Product to Cart</button>
+  <table class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <td>Cart ID</td>
+        <td>Customer ID</td>
+       
+        <td>Cart Item Count</td>
+        <td>Total Amount</td>
+        <td>Action</td>
+      </tr>
+    </thead>
+<tbody>
+  <tr *ngFor="let cart of cartList">
+    <td>{{ cart.cartId }}</td>
+    <td>{{ cart.customer.id }}</td>
+
+    <td>{{ cart.count }}</td>
+    <td>{{ cart.total }}</td>
+    <td> 
+      <button class="btn btn-success "(click)="increaseCount(1)">Increase Count</button></td>
+     <td> <button class="btn btn-group"(click)="reduceCount(1)">Reduce Count</button></td>
+     <td> <button class="btn btn-danger"(click)="deleteProductFromCart(1)">Delete Product</button>
+    </td>
+    <button class="btn btn-danger" (click)="deleteProductFromCart(cart.cartId)">Delete Product</button>
+  </tr>
+  
+</tbody>
+</table>
+  
+</div>
